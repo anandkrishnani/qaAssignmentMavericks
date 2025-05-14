@@ -30,10 +30,7 @@ public class HomePage {
         elementUtilities.click("//button[text() = 'Log in']");
         try{
            Locator nameOfUser= elementUtilities.getLocator("#nameofuser");
-            nameOfUser.waitFor(new Locator.WaitForOptions()
-                    .setTimeout(5000)
-                    .setState(WaitForSelectorState.VISIBLE)
-            );
+            nameOfUser.waitFor(new Locator.WaitForOptions().setTimeout(5000).setState(WaitForSelectorState.VISIBLE));
             String actualLoginString = elementUtilities.getText("#nameofuser");
             return actualLoginString;
         }
@@ -48,5 +45,19 @@ public class HomePage {
         elementUtilities.click("#logout2");
         boolean isVisible = elementUtilities.getLocator("#signin2").isVisible();
         return isVisible;
+    }
+
+    public ProductPage selectProduct( String product){
+        elementUtilities.click(String.format("//a[text()='%s']",product));
+        return new ProductPage(page);
+    }
+
+    public void navigateToCategory(String category){
+        elementUtilities.click(String.format("//a[text()='%s']",category));
+    }
+
+    public CartPage navigateToCartPage(){
+        elementUtilities.click("#cartur");
+        return new CartPage(page);
     }
 }
