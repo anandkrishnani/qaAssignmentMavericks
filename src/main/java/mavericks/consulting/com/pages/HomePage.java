@@ -53,6 +53,7 @@ public class HomePage {
     }
 
     public void navigateToCategory(String category){
+        elementUtilities.getLocator(String.format("//a[text()='%s']",category)).waitFor(new Locator.WaitForOptions().setTimeout(5000));
         elementUtilities.click(String.format("//a[text()='%s']",category));
     }
 
