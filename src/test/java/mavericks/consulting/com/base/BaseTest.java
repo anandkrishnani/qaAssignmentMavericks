@@ -25,14 +25,15 @@ public class BaseTest {
     protected Playwright playwright;
 
     @BeforeTest
-    @Parameters({"testType"})
-    public void setup(@Optional("UI") String testType) {
+    @Parameters({"testType","browser"})
+    public void setup(@Optional("UI") String testType, @Optional String browserName) {
         playwrightFactory = new PlaywrightFactory();
         properties = playwrightFactory.initProperties();
         playwright = Playwright.create();
         APIRequest request = playwright.request();
         context = request.newContext();
         if (testType.equalsIgnoreCase("UI")) {
+            properties.setProperty("browser",browserName);
             page = playwrightFactory.initBrowser(properties);
             homePage = new HomePage(page);
         }
