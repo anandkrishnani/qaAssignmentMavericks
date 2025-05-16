@@ -20,8 +20,8 @@ public class LoginTest extends BaseTest {
                 {" ", " ddd"},
                 {" asgdgd", "3%$#"},
                 {"@#$%", "werfd"},
-            /*    {" ", " "},
-                {null, null}*/
+                {" ", " "},
+                {null, null}
 
         };
     }

@@ -12,7 +12,6 @@ import org.testng.annotations.*;
 
 import java.util.Properties;
 
-
 public class BaseTest {
 
     private PlaywrightFactory playwrightFactory;
