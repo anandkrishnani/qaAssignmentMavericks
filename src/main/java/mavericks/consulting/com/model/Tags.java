@@ -1,11 +1,10 @@
-package mavericks.consulting.com.Model;
+package mavericks.consulting.com.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-public class Category {
+@Getter @Setter
+public class Tags {
     private long id;
     private String name;
 }

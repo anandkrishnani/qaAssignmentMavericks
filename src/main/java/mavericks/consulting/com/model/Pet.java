@@ -1,4 +1,4 @@
-package mavericks.consulting.com.Model;
+package mavericks.consulting.com.model;
 
 import lombok.Getter;
 import lombok.Setter;
