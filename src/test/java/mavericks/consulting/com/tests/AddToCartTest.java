@@ -1,6 +1,8 @@
 package mavericks.consulting.com.tests;
 
 import mavericks.consulting.com.base.BaseTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -8,7 +10,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class AddToCartTest extends BaseTest {
-
+    private static final Logger logger = LoggerFactory.getLogger(AddToCartTest.class);
     @DataProvider
     public Object[][] productCartDataProvider() {
         return new Object[][]
@@ -35,10 +37,11 @@ public class AddToCartTest extends BaseTest {
         cartPage = homePage.navigateToCartPage();
         List<String> cartProductList = cartPage.getProductList();
         for ( String s: cartProductList){
-            System.out.println(s);
+            logger.info("{} Product added to the cart",s);
         }
         Assert.assertTrue(cartProductList.contains(product1));
         Assert.assertTrue(cartProductList.contains(product2));
         Assert.assertTrue(cartProductList.contains(product3));
+        cartPage.deleteCartItems();
     }
 }

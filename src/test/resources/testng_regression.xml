@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="QA assignment Test" verbose="4"  thread-count="4" parallel="tests">
+<suite name="QA assignment Test" verbose="4"  thread-count="1" parallel="tests">
     <listeners>
         <listener
                 class-name="mavericks.consulting.com.listener.AllureTestNg" />
@@ -17,7 +17,7 @@
 
     <test name="Add to Cart Test" >
         <parameter name="testType" value="UI" />
-        <parameter name="browser" value="safari" />
+        <parameter name="browser" value="chrome" />
         <classes>
             <class name="mavericks.consulting.com.tests.AddToCartTest" />
         </classes>

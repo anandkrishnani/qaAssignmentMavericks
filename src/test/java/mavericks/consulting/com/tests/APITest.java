@@ -7,9 +7,10 @@ import mavericks.consulting.com.Model.Category;
 import mavericks.consulting.com.Model.Pet;
 import mavericks.consulting.com.Model.Tags;
 import mavericks.consulting.com.base.BaseTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class APITest extends BaseTest {
     private long petId;
     private ObjectMapper mapper;
     private Pet getResponse;
-
+    private static final Logger logger = LoggerFactory.getLogger(APITest.class);
     @Test
     public void addNewPetToStore() {
         mapper = new ObjectMapper();
@@ -33,7 +34,7 @@ public class APITest extends BaseTest {
         } catch (IOException e) {
             e.getStackTrace();
         }
-        System.out.println("Pet created with ID: " + responsePet.getId());
+        logger.info("Pet created with ID: {}",responsePet.getId());
         petId = responsePet.getId();
         Assert.assertEquals(response.status(), 200);
         Assert.assertEquals(responsePet.getCategory().getName(), initializeRequestBody().getCategory().getName());

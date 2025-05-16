@@ -5,11 +5,13 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import mavericks.consulting.com.utilities.ElementUtilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HomePage {
-    Page page;
+    private Page page;
     private ElementUtilities elementUtilities;
-
+    private static final Logger logger = LoggerFactory.getLogger(HomePage.class);
     public HomePage(Page page) {
         this.page =page;
         elementUtilities = new ElementUtilities(page);
@@ -35,7 +37,7 @@ public class HomePage {
             return actualLoginString;
         }
         catch (PlaywrightException e){
-            System.out.println("Login unsuccessful");
+            logger.info("Login unsuccessful");
             elementUtilities.click("//div[@id='logInModal']//button[text()='Close']");
             return null ;
         }

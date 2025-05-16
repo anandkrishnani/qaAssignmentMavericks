@@ -4,8 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import mavericks.consulting.com.utilities.ElementUtilities;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
 public class ProductPage {
     private Page page;
     private ElementUtilities elementUtilities;
@@ -15,15 +13,9 @@ public class ProductPage {
     }
 
     public void addToCart() {
-        //assertThat(elementUtilities.getLocator("//a[text()='Add to cart']")).isEnabled();
         elementUtilities.getLocator("//a[text()='Add to cart']").waitFor(new Locator.WaitForOptions().setTimeout(5000));
         elementUtilities.click("//a[text()='Add to cart']");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        page.onDialog(dialog -> dialog.accept());
     }
 
     public void navigateToHomePage(){

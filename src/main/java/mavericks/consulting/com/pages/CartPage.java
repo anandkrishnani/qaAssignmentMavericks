@@ -20,4 +20,11 @@ public class CartPage {
         return page.locator("//tbody[@id='tbodyid']/tr/td[2]").allInnerTexts();
 
     }
+    public void deleteCartItems(){
+       List<Locator> cartlist= page.locator("//*[@id='tbodyid']/tr/td[4]/a").all();
+       for(Locator l:cartlist){
+           l.click();
+           l.waitFor(new Locator.WaitForOptions().setTimeout(5000));
+       }
+    }
 }

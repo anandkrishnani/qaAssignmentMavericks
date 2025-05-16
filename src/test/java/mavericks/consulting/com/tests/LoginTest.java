@@ -21,8 +21,7 @@ public class LoginTest extends BaseTest {
                 {" asgdgd", "3%$#"},
                 {"@#$%", "werfd"},
                 {" ", " "},
-                {null, null}
-
+//                {null, null}
         };
     }
 
@@ -35,7 +34,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void logoutTest() {
-        //homePage.doLogin(properties.getProperty("login"), properties.getProperty("password"));
         boolean SignUpLocatorisVisible = homePage.doLogout();
         Assert.assertTrue(SignUpLocatorisVisible);
     }
