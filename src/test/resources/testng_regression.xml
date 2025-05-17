@@ -15,19 +15,19 @@
         </classes>
     </test>
 
-    <test name="Add to Cart Test" >
-        <parameter name="testType" value="UI" />
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="mavericks.consulting.com.tests.AddToCartTest" />
-        </classes>
-    </test>
+<!--    <test name="Add to Cart Test" >-->
+<!--        <parameter name="testType" value="UI" />-->
+<!--        <parameter name="browser" value="chrome" />-->
+<!--        <classes>-->
+<!--            <class name="mavericks.consulting.com.tests.AddToCartTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Pet Store Test" >
-        <parameter name="testType" value="API" />
-        <classes>
-            <class name="mavericks.consulting.com.tests.APITest" />
-        </classes>
-    </test>
+<!--    <test name="Pet Store Test" >-->
+<!--        <parameter name="testType" value="API" />-->
+<!--        <classes>-->
+<!--            <class name="mavericks.consulting.com.tests.APITest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

@@ -11,6 +11,7 @@ public class LoginTest extends BaseTest {
     public void loginTest() {
         String actualNameOfUser = homePage.doLogin(properties.getProperty("login"), properties.getProperty("password"));
         Assert.assertEquals(actualNameOfUser, "Welcome " + properties.getProperty("login"));
+        homePage.doLogout();
     }
 
     @DataProvider
@@ -34,6 +35,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void logoutTest() {
+        homePage.doLogin(properties.getProperty("login"), properties.getProperty("password"));
         boolean SignUpLocatorisVisible = homePage.doLogout();
         Assert.assertTrue(SignUpLocatorisVisible);
     }
