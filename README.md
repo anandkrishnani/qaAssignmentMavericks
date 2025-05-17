@@ -6,8 +6,8 @@ This is a **hybrid automation framework** built using **Java**, **TestNG**, and 
 
 ## ✅ Design Principles & Patterns Followed
 
-- **Page Object Model (POM)**
-- **Single Responsibility Principle (SRP)**
+- **Page Object Model (POM)**  
+- **Single Responsibility Principle (SRP)**  
 - **Arrange, Act, and Assert (AAA) Pattern**
 
 ---
@@ -23,7 +23,7 @@ This is a **hybrid automation framework** built using **Java**, **TestNG**, and 
 
 ### 2. **Directory Structure**
 - **`model/`**  
-  Contains POJO classes used across API flows.
+  Contains POJO classes used across UI flows.
 
 - **`pages/`**  
   Contains Page Object classes with elements and page-level actions.
@@ -34,23 +34,23 @@ This is a **hybrid automation framework** built using **Java**, **TestNG**, and 
 - **`exception/`**  
   Contains `BrowserException`, a custom exception handler for browser-related failures.
 
-- **`tests/`**
-    - `LoginTest` and `AddToCartTest` – for UI testing
-    - `APITest` – for REST API testing
+- **`tests/`**  
+  - `LoginTest` and `AddToCartTest` – for UI testing  
+  - `APITest` – for REST API testing  
 
 - **`resources/`**
-    - `config.properties` – configuration file for base URL, credentials, headless mode, etc.
-    - `testng_regression.xml` – defines the test suite and test classes.
+  - `config.properties` – Configuration file including base URL, credentials, headless flag, etc.
+  - `testng_regression.xml` – TestNG suite configuration file listing all test classes.
 
 ---
 
-## 🔧 Configuration Parameters
+## ⚙️ Configuration Parameters
 
 Each test can be customized using the following parameters:
 
-| Parameter | Description            | Supported Values         |
-|----------|------------------------|--------------------------|
-| `testType` | Type of test           | `UI` (default), `API`    |
+| Parameter  | Description           | Supported Values                  |
+|------------|------------------------|-----------------------------------|
+| `testType` | Type of test           | `UI` (default), `API`             |
 | `browser`  | Browser to execute on  | `chrome`, `chromium`, `safari`, `firefox` |
 
 ---
@@ -64,14 +64,34 @@ Each test can be customized using the following parameters:
 
 ## ▶️ How to Run the Tests
 
-Open a terminal and navigate to the root directory of the project.
+Open a terminal and navigate to the root directory of the project:
 
 ```bash
 # Clean and run tests
 mvn clean test
 
-# Generate Allure reports
+# Generate Allure report
 allure generate
 
-# Serve the Allure report locally
+# Serve Allure report locally
 allure serve
+```
+
+---
+
+## 🔗 Tech Stack 
+
+- Java
+- TestNG
+- Playwright (for Java)
+- Maven
+- Logback
+- Allure Reports
+
+---
+
+## 📁 Repository
+
+GitHub Repo: [qaAssignmentMavericks](https://github.com/anandkrishnani/qaAssignmentMavericks)
+
+---
