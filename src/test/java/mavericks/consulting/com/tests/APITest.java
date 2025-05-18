@@ -47,7 +47,14 @@ public class APITest extends BaseTest {
     @Test
     public void findPetByID() {
         addNewPetToStore();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         APIResponse response = context.get(properties.getProperty("base-uri-api") + String.format("/%s", petId), RequestOptions.create().setHeader("accept", "application/json"));
+        Assert.assertEquals(response.status(), 200);
+        logger.debug(response.text());
         try {
             getResponse = mapper.readValue(response.body(), Pet.class);
         } catch (IOException e) {
@@ -55,6 +62,18 @@ public class APITest extends BaseTest {
         }
         Assert.assertEquals(getResponse.getId(), petId);
         Assert.assertEquals(getResponse.getName(), responsePet.getName());
+    }
+    @Test
+    public void findPetByInvalidIDNegativeTest() {
+        addNewPetToStore();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        APIResponse response = context.get(properties.getProperty("base-uri-api") + String.format("/%s", "49223372036854742083"), RequestOptions.create().setHeader("accept", "application/json"));
+        logger.debug(response.text());
+        Assert.assertEquals(response.status(), 404);
     }
 
     public Pet initializeRequestBody() {
