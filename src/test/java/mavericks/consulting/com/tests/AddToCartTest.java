@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -37,11 +38,16 @@ public class AddToCartTest extends BaseTest {
         cartPage = homePage.navigateToCartPage();
         List<String> cartProductList = cartPage.getProductList();
         for ( String s: cartProductList){
-            logger.info("{} Product added to the cart",s);
+            logger.info("{} added to the cart",s);
         }
-        Assert.assertTrue(cartProductList.contains(product1));
-        Assert.assertTrue(cartProductList.contains(product2));
-        Assert.assertTrue(cartProductList.contains(product3));
+        SoftAssert softAssert =new SoftAssert();
+        softAssert.assertTrue(cartProductList.contains(product1));
+        softAssert.assertTrue(cartProductList.contains(product2));
+        softAssert.assertTrue(cartProductList.contains(product3));
+        softAssert.assertEquals(cartPage.getProductPrice(product1), "360");
+        softAssert.assertEquals(cartPage.getProductPrice(product2), "790");
+        softAssert.assertEquals(cartPage.getProductPrice(product3), "400");
+        softAssert.assertAll();
         cartPage.deleteCartItems();
     }
 }

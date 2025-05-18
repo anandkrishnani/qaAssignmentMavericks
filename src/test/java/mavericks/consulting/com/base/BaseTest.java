@@ -46,7 +46,9 @@ public class BaseTest {
         if (testType.equalsIgnoreCase("UI")) {
             page.context().browser().close();
         }
-        playwright.close();
+        else {
+            playwright.close();
+        }
     }
 
 }

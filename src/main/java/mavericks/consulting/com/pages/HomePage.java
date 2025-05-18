@@ -49,7 +49,7 @@ public class HomePage {
         return isVisible;
     }
 
-    public ProductPage selectProduct( String product){
+    public ProductPage selectProduct(String product){
         elementUtilities.click(String.format("//a[text()='%s']",product));
         return new ProductPage(page);
     }
