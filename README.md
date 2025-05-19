@@ -23,7 +23,7 @@ This is a **hybrid automation framework** built using **Java**, **TestNG**, and 
 
 ### 2. **Directory Structure**
 - **`model/`**  
-  Contains POJO classes used across UI flows.
+  Contains POJO classes used across API flows.
 
 - **`pages/`**  
   Contains Page Object classes with elements and page-level actions.
