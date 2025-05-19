@@ -47,11 +47,6 @@ public class APITest extends BaseTest {
     @Test
     public void findPetByID() {
         addNewPetToStore();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         APIResponse response = context.get(properties.getProperty("base-uri-api") + String.format("/%s", petId), RequestOptions.create().setHeader("accept", "application/json"));
         Assert.assertEquals(response.status(), 200);
         logger.debug(response.text());
